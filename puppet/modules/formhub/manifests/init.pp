@@ -25,7 +25,7 @@ class formhub
     exec 
     { 
         'formhub-setup':
-            command => '/var/www/vagrant/src/scripts/formhub.setup.sh',
+            command => '/var/www/vagrant2/src/scripts/formhub.setup.sh',
             require => [    Package['default-jre'], 
                             Package['gcc'], 
                             Package['git'], 
