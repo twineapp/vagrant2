@@ -33,7 +33,7 @@ sudo cp ~/src/formhub-app/formhub/extras/celeryd/etc/default/celeryd /etc/defaul
 sed 's,<username>,vagrant,g' /etc/default/celeryd > tmpfile && mv tmpfile /etc/default/celeryd
 ###sudo /etc/init.d/celeryd start ### Not sure why this fails. Below is another users solution.
 /home/vagrant/virtual_environments/formhub/bin/python /home/vagrant/src/formhub-app/formhub/manage.py celeryd_multi start
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8000
 
 echo "Formhub: Running Tests:"
 ###python manage.py test ###Disabled testing as this is very time consuming (more than 20 minutes)

@@ -33,7 +33,7 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
     - copy dof postgresql dump to 'dofapp/postgresql/dof_export.sql'
 4. Run terminal, go into 'dofapp/vagrant2/', and execute the command 'vagrant up'. This will download the base box of ubuntu (~35MB), and bring up the dof vm
 5. View dof: http://192.168.50.5/dof
-6. View Formhub: 
+6. View Formhub: http://192.168.50.5:8000/
 7. View Orbeon: http://192.168.50.5:8080/orbeon
 
 ## Working with the twine vagrant:
