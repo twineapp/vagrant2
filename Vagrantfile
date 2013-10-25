@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
         
         #inv_config.vm.network :forwarded_port, guest: 80, host: 8081
         #inv_config.vm.network :forwarded_port, guest: 3306, host: 3316
-        config.vm.network :private_network, ip: "192.168.50.4"
+        config.vm.network :private_network, ip: "192.168.50.5"
 
         inv_config.vm.hostname = "dof"
         
