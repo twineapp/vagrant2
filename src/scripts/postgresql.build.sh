@@ -4,8 +4,8 @@ echo "db script start."
 
 echo "... 1 database, database users, user permissions"
 sudo -u postgres psql -c "create database dof_security;"
-sudo -u postgres psql -c "create user dof_read with password 'password';"
-sudo -u postgres psql -c "create user dof_write with password 'password';"
+sudo -u postgres psql -c "create user dof_read with password 'pwd';"
+sudo -u postgres psql -c "create user dof_write with password 'pwd';"
 sudo -u postgres psql -c "GRANT select ON ALL TABLES IN SCHEMA public TO dof_read;"
 sudo -u postgres psql -c "GRANT select,insert,update,delete ON ALL TABLES IN SCHEMA public TO dof_write;"
 

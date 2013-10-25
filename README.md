@@ -6,6 +6,12 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
 
 - Apache
 - MySQL
+- PostgreSQL
+- Formhub
+- Orbeon
+- Tomcat7
+- Java JDK
+- Java JRE
 - PHP
 - phpMyAdmin
 - Curl
@@ -13,7 +19,6 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
 - Mongo
 - Prince
 - Python
-- Flask
 
 ## Requirements:
 - VirtualBox (https://www.virtualbox.org/wiki/Downloads), tested with v4.2.12
@@ -27,6 +32,9 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
 	
     - copy dof postgresql dump to 'dofapp/postgresql/dof_export.sql'
 4. Run terminal, go into 'dofapp/vagrant2/', and execute the command 'vagrant up'. This will download the base box of ubuntu (~35MB), and bring up the dof vm
+5. View dof: http://192.168.50.5/dof
+6. View Formhub: 
+7. View Orbeon: http://192.168.50.5:8080/orbeon
 
 ## Working with the twine vagrant:
 - "vagrant up" starts the virtual machine
@@ -42,5 +50,7 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
 - src in the directory is linked to the webserver document root
 
 ## VM Passwords
-- mysql username:password are ##:##
-- rockmongo username:password are ##:##
+- mysql username:password are root:pwd
+- postgresql username:password are dof_read:pwd
+- postgresql username:password are dof_write:pwd
+- rockmongo username:password are admin:admin

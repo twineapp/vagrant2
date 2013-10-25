@@ -16,6 +16,7 @@ include apache
 include php
 include postgresql
 include formhub
+include orbeon
 include mysql
 include phpmyadmin
 include mongo
