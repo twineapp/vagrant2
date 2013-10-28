@@ -19,6 +19,7 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
 - Mongo
 - Prince
 - Python
+- Sendmail
 
 ## Requirements:
 - VirtualBox (https://www.virtualbox.org/wiki/Downloads), tested with v4.2.12

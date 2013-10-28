@@ -31,9 +31,11 @@ echo "Formhub: Configure the celery daemon:"
 sudo cp ~/src/formhub-app/formhub/extras/celeryd/etc/init.d/celeryd /etc/init.d/celeryd
 sudo cp ~/src/formhub-app/formhub/extras/celeryd/etc/default/celeryd /etc/default/celeryd
 sed 's,<username>,vagrant,g' /etc/default/celeryd > tmpfile && mv tmpfile /etc/default/celeryd
+echo "EMAIL_HOST = 'localhost'" >> ~/src/formhub-app/formhub/formhub/settings.py
+echo "EMAIL_PORT = 25" >> ~/src/formhub-app/formhub/formhub/settings.py
 ###sudo /etc/init.d/celeryd start ### Not sure why this fails. Below is another users solution.
-/home/vagrant/virtual_environments/formhub/bin/python /home/vagrant/src/formhub-app/formhub/manage.py celeryd_multi start
-python manage.py runserver 0.0.0.0:8000
+~/virtual_environments/formhub/bin/python ~/src/formhub-app/formhub/manage.py celeryd_multi start
+nohup python manage.py runserver 0.0.0.0:8000 &
 
 echo "Formhub: Running Tests:"
 ###python manage.py test ###Disabled testing as this is very time consuming (more than 20 minutes)

@@ -11,7 +11,8 @@ class formhub
         "zlib1g-dev",
         "rabbitmq-server",
         "libxml2-dev",
-        "libxslt1-dev"
+        "libxslt1-dev",
+        "sendmail"
     ]
     
     package 
@@ -26,6 +27,7 @@ class formhub
     { 
         'formhub-setup':
             command => '/var/www/vagrant2/src/scripts/formhub.setup.sh',
+            timeout => '0',
             require => [    Package['default-jre'], 
                             Package['gcc'], 
                             Package['git'], 
@@ -37,7 +39,8 @@ class formhub
                             Package['rabbitmq-server'],
                             Package['mongodb-10gen'],
                             Package['libxml2-dev'],
-                            Package['libxslt1-dev'] ]
+                            Package['libxslt1-dev'],
+                            Package['sendmail'] ]
     }
 
   
