@@ -20,4 +20,3 @@ echo "127.0.0.1       enketo.local" >> /etc/hosts
 
 cp /var/www/vagrant2/puppet/templates/enketo /etc/apache2/sites-available/enketo
 a2ensite enketo
-service apache2 reload

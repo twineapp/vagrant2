@@ -34,4 +34,3 @@ echo "127.0.0.1       formhub.local" >> /etc/hosts
 cp /var/www/vagrant2/puppet/templates/formhub.wsgi /var/www/formhub/formhub.wsgi
 cp /var/www/vagrant2/puppet/templates/formhub /etc/apache2/sites-available/formhub
 a2ensite formhub
-service apache2 reload

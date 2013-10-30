@@ -16,14 +16,6 @@
 		allow from all
 	</Directory>
 
-        Alias /static/ /var/www/formhub/main/static/
-        <Directory /var/www/formhub/main/static>
-            AllowOverride All
-            Order allow,deny
-            Allow from all
-        </Directory>
-        WSGIScriptAlias / /var/www/formhub/formhub.wsgi
-
 	ErrorLog /var/log/apache2/error.log
 	LogLevel warn
 	CustomLog /var/log/apache2/access.log combined
