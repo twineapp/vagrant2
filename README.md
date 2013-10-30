@@ -8,6 +8,7 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
 - MySQL
 - PostgreSQL
 - Formhub
+- Enketo
 - Orbeon
 - Tomcat7
 - Java JDK
@@ -33,9 +34,12 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
 	
     - copy dof postgresql dump to 'dofapp/postgresql/dof_export.sql'
 4. Run terminal, go into 'dofapp/vagrant2/', and execute the command 'vagrant up'. This will download the base box of ubuntu (~35MB), and bring up the dof vm
-5. View dof: http://192.168.50.5/dof
-6. View Formhub: http://192.168.50.5:8000/
-7. View Orbeon: http://192.168.50.5:8080/orbeon
+5. Edit your local machine hosts file by adding these entries (in Ubuntu file is at /etc/hosts)
+	- 192.168.50.5    formhub.local
+	- 192.168.50.5    enketo.local
+6. View dof: http://192.168.50.5/dof
+7. View Formhub: http://formhub.local/
+8. View Orbeon: http://enketo.local/
 
 ## Working with the twine vagrant:
 - "vagrant up" starts the virtual machine

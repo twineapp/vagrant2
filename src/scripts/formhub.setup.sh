@@ -1,15 +1,8 @@
 #!/bin/sh
 
-echo "Formhub: Set up a new virtual environment:"
-mkdir ~/virtual_environments
-cd ~/virtual_environments
-virtualenv --no-site-packages formhub
-source formhub/bin/activate
-
 echo "Formhub: Make directory structure and clone formhub:"
-mkdir -p ~/src/formhub-app
-cd ~/src/formhub-app
-git clone git://github.com/modilabs/formhub.git
+cd /var/www
+rm -rf formhub/ ; git clone git://github.com/modilabs/formhub.git
 cd formhub
 git submodule init
 git submodule update
@@ -23,20 +16,22 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
 pip install -r requirements.pip
 
 echo "Formhub: Create a database and start server:"
+cp /var/www/vagrant2/puppet/templates/default_settings.py /var/www/formhub/formhub/preset/default_settings.py
+mysql -u root -ppwd -e "create database formhub";
 python manage.py syncdb --noinput
 python manage.py migrate
 
 
 echo "Formhub: Configure the celery daemon:"
-sudo cp ~/src/formhub-app/formhub/extras/celeryd/etc/init.d/celeryd /etc/init.d/celeryd
-sudo cp ~/src/formhub-app/formhub/extras/celeryd/etc/default/celeryd /etc/default/celeryd
+cp /var/www/formhub/extras/celeryd/etc/init.d/celeryd /etc/init.d/celeryd
+cp /var/www/formhub/extras/celeryd/etc/default/celeryd /etc/default/celeryd
 sed 's,<username>,vagrant,g' /etc/default/celeryd > tmpfile && mv tmpfile /etc/default/celeryd
-echo "EMAIL_HOST = 'localhost'" >> ~/src/formhub-app/formhub/formhub/settings.py
-echo "EMAIL_PORT = 25" >> ~/src/formhub-app/formhub/formhub/settings.py
-###sudo /etc/init.d/celeryd start ### Not sure why this fails. Below is another users solution.
-~/virtual_environments/formhub/bin/python ~/src/formhub-app/formhub/manage.py celeryd_multi start
-nohup python manage.py runserver 0.0.0.0:8000 &
+cp /var/www/vagrant2/puppet/templates/settings.py /var/www/formhub/formhub/settings.py
+python manage.py celeryd_multi start
+echo "127.0.0.1       formhub.local" >> /etc/hosts
 
-echo "Formhub: Running Tests:"
-###python manage.py test ###Disabled testing as this is very time consuming (more than 20 minutes)
 
+cp /var/www/vagrant2/puppet/templates/formhub.wsgi /var/www/formhub/formhub.wsgi
+cp /var/www/vagrant2/puppet/templates/formhub /etc/apache2/sites-available/formhub
+a2ensite formhub
+service apache2 reload

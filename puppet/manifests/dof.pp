@@ -16,18 +16,17 @@ include apache
 include php
 include postgresql
 include formhub
+include enketo
 include orbeon
 include mysql
 include phpmyadmin
 include mongo
 include python
-#include etl
 include wsgi
 
 exec 
 { 
     'service apache2 reload':
         command => 'service apache2 reload',
-        #require => [ Exec["add-oauth-extension"], Exec["add-mongo-extension"] ]
-        require => [ Exec["add-oauth-extension"]]
+        require => [ Exec["add-oauth-extension"], Exec["add-mongo-extension"] ]
 }

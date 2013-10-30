@@ -5,13 +5,13 @@ class formhub
         "gcc",
         "git",
         "python-dev",
-        "python-virtualenv",
         "libjpeg-dev",
         "libfreetype6-dev",
         "zlib1g-dev",
         "rabbitmq-server",
         "libxml2-dev",
         "libxslt1-dev",
+        "python-mysqldb",
         "sendmail"
     ]
     
@@ -32,7 +32,6 @@ class formhub
                             Package['gcc'], 
                             Package['git'], 
                             Package['python-dev'], 
-                            Package['python-virtualenv'], 
                             Package['libjpeg-dev'], 
                             Package['libfreetype6-dev'], 
                             Package['zlib1g-dev'], 
@@ -40,8 +39,9 @@ class formhub
                             Package['mongodb-10gen'],
                             Package['libxml2-dev'],
                             Package['libxslt1-dev'],
+                            Package['python-mysqldb'],
                             Package['sendmail'] ]
     }
 
-  
+
 }

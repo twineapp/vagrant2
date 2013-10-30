@@ -33,21 +33,5 @@ class postgresql
         'postgresql-setup':
             command => '/var/www/vagrant2/src/scripts/postgresql.setup.sh',
             require => [ Package['postgresql-9.3-postgis'], Package['phppgadmin'] ]
-    }
-    /*
-    exec 
-    { 
-        'postgresql-conf-datadrive':
-            command => "sed 's,/var/lib/postgresql/9.3/main,/var/datadrive/postgresql,g' /etc/postgresql/9.3/main/postgresql.conf > tmpfile && mv tmpfile /etc/postgresql/9.3/main/postgresql.conf",
-            require => Exec['postgresql-init-datadrive']
-    }
-
-    exec 
-    { 
-        'postgresql-restart':
-            command => '/etc/init.d/postgresql restart',
-            require => Package['postgresql-9.3-postgis']
-    }
-    */
-  
+    }  
 }

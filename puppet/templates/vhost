@@ -15,15 +15,14 @@
 		Order allow,deny
 		allow from all
 	</Directory>
-	
-	WSGIDaemonProcess api-data processes=1 maximum-requests=500 threads=2
-        WSGIScriptAlias /api-data /var/www/siv-v3/api-data/ETL/etl.wsgi
-	<Directory /var/www/siv-v3/api-data/ETL>
-		WSGIProcessGroup api-data
-		WSGIApplicationGroup %{GLOBAL}
-		Order deny,allow
-		Allow from all
-	</Directory>
+
+        Alias /static/ /var/www/formhub/main/static/
+        <Directory /var/www/formhub/main/static>
+            AllowOverride All
+            Order allow,deny
+            Allow from all
+        </Directory>
+        WSGIScriptAlias / /var/www/formhub/formhub.wsgi
 
 	ErrorLog /var/log/apache2/error.log
 	LogLevel warn

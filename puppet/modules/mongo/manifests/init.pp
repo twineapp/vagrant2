@@ -42,35 +42,7 @@ class mongo
             command => 'echo "extension=mongo.so" >> /etc/php5/apache2/php.ini',
             require => Exec['pecl-mongo-install'],
     }
-    /*
-    exec
-    {
-        "mongorestore-his":
-            command => 'mongorestore --drop -d siv /var/www/vagrant/src/mongo/his.bson',
-            timeout => 3600,
-            require => Package["mongodb-10gen"],
-            onlyif  => 'test -f /var/www/vagrant/src/mongo/his.bson',
-    }
-    
-    exec
-    {
-        "mongorestore-de-urban":
-            command => 'mongorestore --drop -d siv /var/www/vagrant/src/mongo/de_urban.bson',
-            timeout => 3600,
-            require => Package["mongodb-10gen"],
-            onlyif  => 'test -f /var/www/vagrant/src/mongo/de_urban.bson',
-    }
-    */    
-    /*
-    exec
-    {
-        "mongorestore-de-foodaid":
-            command => 'mongorestore --drop -d siv /var/www/vagrant/src/mongo/de_foodaid.bson',
-            timeout => 3600,
-            require => Package["mongodb-10gen"],
-            onlyif  => 'test -f /var/www/vagrant/src/mongo/de_foodaid.bson',
-    }
-    */
+
     exec
     {
         "wget-rockmongo":
