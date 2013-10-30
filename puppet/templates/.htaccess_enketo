@@ -1,0 +1,31 @@
+#AuthUserFile /var/www/rapaide.org/.htpasswd
+#AuthName 'By Invitation Only'
+#AuthType Basic
+
+#Require valid-user
+
+#don't list the directory contents
+IndexIgnore *
+
+RewriteEngine on
+
+#RewriteCond %{HTTPS} off
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+RewriteCond $1 !^(index\.php|info\.php|sitemap\.xml|css|images|js-source|js-min|libraries|robots\.txt|favicon\.ico|checkforconnection\.txt|checkforconnection\.php)
+RewriteRule ^(.*)$ /index.php/$1 [L]
+
+#attempt to allow .appcache extension for manifest files (not working yet)
+#RewriteRule ^(.*)manifest\.appcache /$1 [NC,L]
+
+#make sure certain files are served with the right Content-type
+AddType font/ttf .ttf
+AddType application/font-woff .woff
+#AddType text/cache-manifest .appcache
+
+#Avoid caching of manifest files
+ExpiresByType text/cache-manifest "access plus 0 seconds"
+
+#allow larger file size (can also be set in php.ini)
+php_value upload_max_filesize 100M
+php_value post_max_size 250M
