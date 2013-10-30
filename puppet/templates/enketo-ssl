@@ -1,7 +1,11 @@
-<VirtualHost *:80>
+<VirtualHost *:443>
 	ServerAdmin admin@twine
 
-        ServerName enketo.local
+        ServerName enketo.local:443
+
+        SSLEngine on
+        SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
+        SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
 
         DocumentRoot /var/www/enketo/public
         <Directory /var/www/enketo/public>
