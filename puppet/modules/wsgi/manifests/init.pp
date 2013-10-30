@@ -1,17 +1,16 @@
 class wsgi 
-{      
+{   
     package 
     { 
-        "libapache2-mod-wsgi":
+        "apache2-dev":
             ensure  => present,
             require => Exec['apt-get update']
     }
 
-    file 
+    exec 
     { 
-        "/etc/apache2/mods-enabled/wsgi.load":
-            ensure  => link,
-            target  => "/etc/apache2/mods-available/wsgi.load",
-            require => Package['libapache2-mod-wsgi'],
+        'wsgi-setup':
+            command => '/var/www/vagrant2/src/scripts/wsgi.setup.sh',
+            require => [    Package['apache2-dev'] ]
     }
 }
