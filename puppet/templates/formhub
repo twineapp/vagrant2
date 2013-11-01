@@ -1,7 +1,7 @@
 <VirtualHost *:80>
 	ServerAdmin admin@twine
 
-        ServerName formhub.local
+        ServerName formhub.localhost
 
         Alias /static/ /var/www/formhub/main/static/
         <Directory /var/www/formhub/main/static>

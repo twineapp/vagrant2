@@ -1,7 +1,7 @@
 <VirtualHost *:80>
 	ServerAdmin admin@twine
 
-        ServerName enketo.local
+        ServerName enketo.localhost
 
         DocumentRoot /var/www/enketo/public
         <Directory /var/www/enketo/public>

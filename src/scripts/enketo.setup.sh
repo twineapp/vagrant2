@@ -13,9 +13,9 @@ mysql -u root -ppwd --database=enketo < /var/www/enketo/devinfo/database/propert
 mysql -u root -ppwd --database=enketo < /var/www/enketo/devinfo/database/surveys.sql
 git submodule update --init
 sudo /etc/init.d/apache2 restart
-cp /var/www/vagrant2/puppet/templates/settings.py /var/www/formhub/formhub/settings.py
+cp /var/www/vagrant2/puppet/templates/enketo.php /var/www/enketo/Code_Igniter/application/config/enketo.php
 cp /var/www/vagrant2/puppet/templates/database.php /var/www/enketo/Code_Igniter/application/config/database.php
-echo "127.0.0.1       enketo.local" >> /etc/hosts
+echo "127.0.0.1       enketo.localhost" >> /etc/hosts
 
 
 cp /var/www/vagrant2/puppet/templates/enketo /etc/apache2/sites-available/enketo
