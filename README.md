@@ -35,12 +35,27 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
     - copy dof postgresql dump to 'dofapp/postgresql/dof_export.sql'
 4. Run terminal, go into 'dofapp/vagrant2/', and execute the command 'vagrant up'. This will download the base box of ubuntu (~35MB), and bring up the dof vm
 5. Install dnsmasq on your local machine nameserver
+
+    **ubuntu**
+
     - sudo apt-get install dnsmasq	
     - edit /etc/dnsmasq.conf and add these entries to bottom of file
         - address=/formhub.localhost/192.168.50.5
         - address=/enketo.localhost/192.168.50.5
     - edit /etc/resolv.conf and add this entry to top of file
         - nameserver 127.0.0.1
+        
+    **OS X**
+
+    - there is a good description here (using homebrew): http://blakeembrey.com/articles/local-development-with-dnsmasq/
+    - brew install dnsmasq
+    - edit /etc/dnsmasq.conf and add these entries to bottom of file
+        - address=/formhub.localhost/192.168.50.5
+        - address=/enketo.localhost/192.168.50.5
+    - add nameserver entry at System Preferences -> Network -> Advanced -> DNS
+        - nameserver 127.0.0.1 (as first entry)
+        - your other DNS name servers
+        
 6. View dof: http://192.168.50.5/dof
 7. View Formhub: http://formhub.localhost/
 8. View Enketo: https://enketo.localhost/
