@@ -4,7 +4,6 @@ echo "Formhub: Make directory structure and clone formhub:"
 cd /var/www
 rm -rf formhub/ ; git clone git://github.com/modilabs/formhub.git
 cd formhub
-git checkout 58de24ae2
 git submodule init
 git submodule update
 
