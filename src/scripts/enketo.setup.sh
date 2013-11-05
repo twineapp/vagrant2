@@ -12,9 +12,8 @@ mysql -u root -ppwd --database=enketo < /var/www/vagrant2/src/sql-enketo/propert
 mysql -u root -ppwd --database=enketo < /var/www/vagrant2/src/sql-enketo/surveys.sql
 git submodule update --init
 sudo /etc/init.d/apache2 restart
-#these need to be edited for the master branch
-#cp /var/www/vagrant2/puppet/templates/enketo.php /var/www/enketo/Code_Igniter/application/config/enketo.php
-#cp /var/www/vagrant2/puppet/templates/database.php /var/www/enketo/Code_Igniter/application/config/database.php
+cp /var/www/vagrant2/puppet/templates/enketo.php /var/www/enketo/Code_Igniter/application/config/enketo.php
+cp /var/www/vagrant2/puppet/templates/database.php /var/www/enketo/Code_Igniter/application/config/database.php
 echo "127.0.0.1       enketo.localhost" >> /etc/hosts
 
 
