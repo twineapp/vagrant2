@@ -81,7 +81,7 @@ ENKETO_URL = 'https://enketo.formhub.localhost/'
 ENKETO_API_SURVEY_PATH = '/api_v1/survey'
 ENKETO_API_INSTANCE_PATH = '/api_v1/instance'
 ENKETO_PREVIEW_URL = ENKETO_URL + 'webform/preview'
-ENKETO_API_TOKEN = ''
+ENKETO_API_TOKEN = 'test'
 ENKETO_API_INSTANCE_IFRAME_URL = ENKETO_URL + "api_v1/instance/iframe"
 
 # Login URLs
