@@ -1,8 +1,8 @@
 <VirtualHost *:443>
 	ServerAdmin admin@twine
 
-        ServerName enketo.localhost:443
-        ServerAlias *.enketo.localhost:443
+        ServerName enketo.formhub.localhost:443
+        ServerAlias *.enketo.formhub.localhost:443
 
 
         SSLEngine on

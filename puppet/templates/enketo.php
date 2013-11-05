@@ -2,11 +2,6 @@
 
 /**
  * Configuration file for all settings EXCEPT the database settings
- * 
- * NOTE: if the lowest level subdomain does not start with 'enketo' 
- * (e.g not enketo.formhub.org or enketo-dev.formhub.org, but example.com ) 
- * $config['base_url'] (line 26 in config.php) will have to be edited as well.
- * 
  */
 
 /**
@@ -24,7 +19,7 @@ $config['google_maps_static_api_key'] = "";
 $config['google_analytics_key'] = "";
 
 /**
- * Used for various purposes, including links back to ...., leave empty if enketo is used as a standalone app
+ * Used for various purposes, best to fill something in for now
  */
 $config['integration_with_url'] = "http://formhub.localhost";
 
@@ -34,20 +29,16 @@ $config['integration_with_url'] = "http://formhub.localhost";
 $config['support_email'] = "support@formhub.org";
 
 /**
- * In the forms (form browser) view this defines which server URL helper to set as default
- * options: 'http', 'https', 'formhub', 'formhub_u', 'appspot' 
- */
-$config['default_server_url_helper'] = "formhub";
-
-/**
  * In the webform view this is the brand name shown (empty = enketo)
  */
-$config['brand'] = "formhub";
+$config['brand'] = "";
 
 /**
  * OpenRosa servers that are allowed to connect
  */
-$config['openrosa_domains_allowed'] = array("formhub.localhost");
+$config['openrosa_domains_allowed'] = array(
+	array('url' => '(www\.|dev\.)?formhub\.org\/?(martijnr|formhub_u)?', 'api_token' => ''),
+);
 
 /**
  * **********************************************************
@@ -56,3 +47,4 @@ $config['openrosa_domains_allowed'] = array("formhub.localhost");
  */
 $config['integrated'] = strlen($config['integration_with_url']) > 0;
 $config['auth_support'] = is_dir(APPPATH.'third_party/form_auth');
+$config['account_support'] = is_dir(APPPATH.'third_party/account');

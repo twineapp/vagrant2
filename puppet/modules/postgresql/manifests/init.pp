@@ -31,7 +31,7 @@ class postgresql
     exec 
     { 
         'postgresql-setup':
-            command => '/var/www/vagrant2/src/scripts/postgresql.setup.sh',
+            command => '/shared_folder/vagrant2/src/scripts/postgresql.setup.sh',
             require => [ Package['postgresql-9.3-postgis'], Package['phppgadmin'] ]
     }  
 }

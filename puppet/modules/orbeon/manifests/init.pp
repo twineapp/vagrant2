@@ -16,7 +16,7 @@ class orbeon
     exec 
     { 
         'orbeon-setup':
-            command => '/var/www/vagrant2/src/scripts/orbeon.setup.sh',
+            command => '/shared_folder/vagrant2/src/scripts/orbeon.setup.sh',
             require => [    Package['tomcat7'], 
                             Package['default-jdk'],
                             Package['unzip'] ]

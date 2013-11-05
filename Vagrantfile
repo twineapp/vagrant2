@@ -10,13 +10,14 @@ Vagrant.configure("2") do |config|
         end
         inv_config.ssh.max_tries = 360
         
+        #inv_config.vm.network :forwarded_port, guest: 22, host: 2223
         #inv_config.vm.network :forwarded_port, guest: 80, host: 8081
         #inv_config.vm.network :forwarded_port, guest: 3306, host: 3316
         config.vm.network :private_network, ip: "192.168.50.5"
 
         inv_config.vm.hostname = "dof"
         
-        inv_config.vm.synced_folder "../", "/var/www", :extra => "dmode=777,fmode=777"
+        inv_config.vm.synced_folder "../", "/shared_folder/", :extra => "dmode=777,fmode=777"
 
         inv_config.vm.provision :puppet do |puppet|
             puppet.manifests_path = "puppet/manifests"

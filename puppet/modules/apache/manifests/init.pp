@@ -32,7 +32,7 @@ class apache
     { 
         "/etc/apache2/sites-available/default":
             ensure  => present,
-            source  => "/var/www/vagrant2/puppet/templates/vhost",
+            source  => "/shared_folder/vagrant2/puppet/templates/vhost",
             require => [ Package["apache2"] ]
     }
 

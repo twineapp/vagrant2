@@ -4,7 +4,6 @@ echo "Formhub: Make directory structure and clone formhub:"
 cd /var/www
 rm -rf formhub/ ; git clone git://github.com/modilabs/formhub.git
 cd formhub
-git checkout 58de24ae2
 git submodule init
 git submodule update
 
@@ -17,7 +16,8 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
 pip install -r requirements.pip
 
 echo "Formhub: Create a database and start server:"
-cp /var/www/vagrant2/puppet/templates/local_settings.py /var/www/formhub/local_settings.py
+cp /shared_folder/vagrant2/puppet/templates/settings.py /var/www/formhub/formhub/settings.py
+cp /shared_folder/vagrant2/puppet/templates/default_settings.py /var/www/formhub/formhub/preset/default_settings.py
 mysql -u root -ppwd -e "create database formhub CHARACTER SET utf8";
 python manage.py syncdb --noinput
 python manage.py migrate
@@ -31,6 +31,8 @@ python manage.py celeryd_multi start
 echo "127.0.0.1       formhub.localhost" >> /etc/hosts
 
 
-cp /var/www/vagrant2/puppet/templates/formhub.wsgi /var/www/formhub/formhub.wsgi
-cp /var/www/vagrant2/puppet/templates/formhub /etc/apache2/sites-available/formhub
+cp /shared_folder/vagrant2/puppet/templates/formhub.wsgi /var/www/formhub/formhub.wsgi
+cp /shared_folder/vagrant2/puppet/templates/formhub /etc/apache2/sites-available/formhub
 a2ensite formhub
+
+chmod -R 777 /var/www/formhub/

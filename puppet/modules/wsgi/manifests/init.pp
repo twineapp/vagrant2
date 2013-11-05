@@ -10,7 +10,7 @@ class wsgi
     exec 
     { 
         'wsgi-setup':
-            command => '/var/www/vagrant2/src/scripts/wsgi.setup.sh',
+            command => '/shared_folder/vagrant2/src/scripts/wsgi.setup.sh',
             require => [    Package['apache2-dev'] ]
     }
 }

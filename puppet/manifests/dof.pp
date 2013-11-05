@@ -15,6 +15,8 @@ include other
 include apache
 include php
 include postgresql
+include ruby
+include nodejs
 include formhub
 include enketo
 include orbeon

@@ -14,11 +14,14 @@ class enketo
     exec 
     { 
         'enketo-setup':
-            command => '/var/www/vagrant2/src/scripts/enketo.setup.sh',
+            command => '/shared_folder/vagrant2/src/scripts/enketo.setup.sh',
             timeout => '0',
             require => [    Package['php5-xsl'], 
                             Package['libapache2-mod-auth-mysql'],
-                            Exec[set-mysql-password] ]
+                            Exec[set-mysql-password],
+                            Package['nodejs'], 
+                            Package['ruby-full'], 
+                            Package['rubygems'] ]
     }
 
 }

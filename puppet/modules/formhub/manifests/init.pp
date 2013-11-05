@@ -26,7 +26,7 @@ class formhub
     exec 
     { 
         'formhub-setup':
-            command => '/var/www/vagrant2/src/scripts/formhub.setup.sh',
+            command => '/shared_folder/vagrant2/src/scripts/formhub.setup.sh',
             timeout => '0',
             require => [    Package['default-jre'], 
                             Package['gcc'], 
@@ -40,6 +40,7 @@ class formhub
                             Package['libxml2-dev'],
                             Package['libxslt1-dev'],
                             Package['python-mysqldb'],
+                            Exec['wsgi-setup'],
                             Package['sendmail'] ]
     }
 

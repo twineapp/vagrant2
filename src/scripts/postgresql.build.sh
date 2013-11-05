@@ -11,7 +11,7 @@ sudo -u postgres psql -c "GRANT select,insert,update,delete ON ALL TABLES IN SCH
 
 echo "Change directory to /var/www/postgresql/"
 echo "Importing data dump: dof_export_for_build_small.sql"
-cd /var/www/postgresql/
+cd /shared_folder/postgresql/
 sudo -u postgres psql dof_security < dof_export_for_build_small.sql > /dev/null 2>&1
 
 

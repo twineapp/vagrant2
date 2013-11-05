@@ -41,7 +41,7 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
     - sudo apt-get install dnsmasq	
     - edit /etc/dnsmasq.conf and add these entries to bottom of file
         - address=/formhub.localhost/192.168.50.5
-        - address=/enketo.localhost/192.168.50.5
+        - address=/enketo.formhub.localhost/192.168.50.5
     - edit /etc/resolv.conf and add this entry to top of file
         - nameserver 127.0.0.1
         
@@ -51,14 +51,14 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
     - brew install dnsmasq
     - edit /etc/dnsmasq.conf and add these entries to bottom of file
         - address=/formhub.localhost/192.168.50.5
-        - address=/enketo.localhost/192.168.50.5
+        - address=/enketo.formhub.localhost/192.168.50.5
     - add nameserver entry at System Preferences -> Network -> Advanced -> DNS
         - nameserver 127.0.0.1 (as first entry)
         - your other DNS name servers
         
 6. View dof: http://192.168.50.5/dof
 7. View Formhub: http://formhub.localhost/
-8. View Enketo: https://enketo.localhost/
+8. View Enketo: https://enketo.formhub.localhost/
 9. View Orbeon: http://192.168.50.5:8080/
 
 ## Working with the twine vagrant:
