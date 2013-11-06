@@ -3,8 +3,8 @@
 
         ServerName formhub.localhost
 
-        Alias /static/ /var/www/formhub/main/static/
-        <Directory /var/www/formhub/main/static>
+        Alias /static/ /var/www/formhub/static/
+        <Directory /var/www/formhub/static>
             AllowOverride All
             Order allow,deny
             Allow from all

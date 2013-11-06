@@ -22,6 +22,8 @@ mysql -u root -ppwd -e "create database formhub CHARACTER SET utf8";
 python manage.py syncdb --noinput
 python manage.py migrate
 
+echo "Formhub: Deploy static files"
+python manage.py collectstatic --noinput
 
 echo "Formhub: Configure the celery daemon:"
 cp /var/www/formhub/extras/celeryd/etc/init.d/celeryd /etc/init.d/celeryd

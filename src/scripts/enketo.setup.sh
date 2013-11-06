@@ -6,7 +6,7 @@ cd /var/www/
 rm -rf enketo/ ; git clone https://github.com/modilabs/enketo.git
 cd enketo
 mysql -u root -ppwd -e "create database enketo";
-mysql -u root -ppwd --database=enketo < /var/www/enketo/devinfo/database/instances.sql
+mysql -u root -ppwd --database=enketo < /shared_folder/vagrant2/src/sql-enketo/instances.sql
 mysql -u root -ppwd --database=enketo < /var/www/enketo/devinfo/database/languages.sql
 mysql -u root -ppwd --database=enketo < /var/www/enketo/devinfo/database/properties.sql
 mysql -u root -ppwd --database=enketo < /var/www/enketo/devinfo/database/surveys.sql

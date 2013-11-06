@@ -79,3 +79,7 @@ Virtual OS: Ubuntu 12.04 (Precise) x64, with Packages:
 - postgresql username:password are dof_read:pwd
 - postgresql username:password are dof_write:pwd
 - rockmongo username:password are admin:admin
+
+## Deployment To Production
+- do search and replace for "formhub.localhost" => "formhub.server.com"
+- deploy puppet with one of these methods: http://puppetlabs.com/blog/deploying-puppet-in-client-server-standalone-and-massively-scaled-environments
