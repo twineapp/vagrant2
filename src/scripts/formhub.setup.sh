@@ -9,11 +9,12 @@ git submodule update
 
 echo "Formhub: Install requirements:"
 pip install numpy  --use-mirrors
+#temp fix for django version in requirements.pip
+sed 's,.*Django.*,Django==1.5,g' /var/www/formhub/requirements.pip > tmpfile && mv tmpfile /var/www/formhub/requirements.pip
 pip install -r requirements.pip
 sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/
 sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/
 sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
-pip install -r requirements.pip
 
 echo "Formhub: Create a database and start server:"
 cp /shared_folder/vagrant2/puppet/templates/settings.py /var/www/formhub/formhub/settings.py
