@@ -16,7 +16,8 @@ class orbeon
     exec 
     { 
         'orbeon-setup':
-            command => '/shared_folder/vagrant2/src/scripts/orbeon.setup.sh',
+            command => 'nohup /shared_folder/vagrant2/src/scripts/orbeon.setup.sh >> /var/log/vagrant_install.log',
+            timeout => '0',
             require => [    Package['tomcat7'], 
                             Package['default-jdk'],
                             Package['unzip'] ]

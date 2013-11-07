@@ -26,7 +26,7 @@ class formhub
     exec 
     { 
         'formhub-setup':
-            command => '/shared_folder/vagrant2/src/scripts/formhub.setup.sh',
+            command => 'nohup /shared_folder/vagrant2/src/scripts/formhub.setup.sh >> /var/log/vagrant_install.log',
             timeout => '0',
             require => [    Package['default-jre'], 
                             Package['gcc'], 

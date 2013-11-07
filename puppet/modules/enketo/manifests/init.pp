@@ -14,7 +14,7 @@ class enketo
     exec 
     { 
         'enketo-setup':
-            command => '/shared_folder/vagrant2/src/scripts/enketo.setup.sh',
+            command => 'nohup /shared_folder/vagrant2/src/scripts/enketo.setup.sh >> /var/log/vagrant_install.log',
             timeout => '0',
             require => [    Package['php5-xsl'], 
                             Package['libapache2-mod-auth-mysql'],
